@@ -32,7 +32,7 @@ Optional fingerprint or face unlock wraps the vault key in the Android Keystore 
 
 If you set VaultLink as Android's autofill service, the app can fill sign-in fields in other apps and browsers after you unlock or confirm. Filling does not upload those credentials.
 
-The app declares Android's user-dictionary permission because of autofill integration. Our code does not read or upload your dictionary.
+Filling does not read your contacts, photos, location, or user dictionary.
 
 ## Permissions
 
@@ -40,7 +40,6 @@ The app declares Android's user-dictionary permission because of autofill integr
 |------------|---------|
 | Internet | Google sign-in and encrypted sync |
 | Biometric | Optional unlock on this device |
-| User dictionary | Declared for Android autofill compatibility; not read by our code |
 
 ## Sharing
 
@@ -87,7 +86,7 @@ VaultLink 是帳號與登入資料保險庫。保險庫在你的裝置上以主�
 - **Google 帳號：** 登入由 Supabase 處理。我們收到 Google 與 Supabase 提供的電子郵件與使用者識別碼，只用來對應哪一份加密保險庫屬於你。主密碼只在裝置上輸入，不會送到我們、Google 或 Supabase。
 - **保險庫內容：** 登入資料、密碼、個人資料、設定檔、關係、垃圾桶與先前的密碼，都先在裝置上加密再儲存。雲端只保存密文、版本號與更新時間。資料庫副本無法還原保險庫內容。本機檔案另有一層裝置綁定的 Android Keystore，這一層不會上傳。
 - **生物辨識：** 指紋或臉部解鎖把金鑰包在裝置上的 Android Keystore。生物辨識範本留在作業系統，我們收不到。重新開機或變更生物辨識登錄後，應用程式會再要求主密碼。
-- **自動填入：** 若你把 VaultLink 設為 Android 自動填入服務，解鎖或確認後可以填入其他應用程式與瀏覽器的登入欄位。填入不會上傳那些憑證。應用程式因自動填入整合而宣告使用者字典權限；我們的程式不會讀取或上傳字典。
+- **自動填入：** 若你把 VaultLink 設為 Android 自動填入服務，解鎖或確認後可以填入其他應用程式與瀏覽器的登入欄位。填入不會上傳那些憑證。填入不會讀取聯絡人、相片、位置或使用者字典。
 
 ### 權限
 
@@ -95,7 +94,6 @@ VaultLink 是帳號與登入資料保險庫。保險庫在你的裝置上以主�
 |------|------|
 | 網際網路 | Google 登入與加密同步 |
 | 生物辨識 | 在這部裝置上選擇性解鎖 |
-| 使用者字典 | 為 Android 自動填入相容性而宣告；我們的程式不會讀取 |
 
 ### 分享
 
