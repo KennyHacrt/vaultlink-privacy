@@ -1,116 +1,59 @@
 # Privacy Policy — VaultLink
 
-**Last updated:** October 28, 2026
+**Last updated: November 12, 2026**
 
-Kenny Lee ("we", "us") operates the mobile application **VaultLink**. This page explains how we handle information when you use the app.
+Kenny Lee operates VaultLink. This policy covers our Android application and planned iOS release.
 
-## Summary
+VaultLink encrypts vault contents on your device before local storage or cloud sync. The master password and recovery key are not sent to us, Supabase, RevenueCat or AdMob. Encryption has not been independently audited.
 
-VaultLink is an account and sign-in vault. Your vault is encrypted on your device with a master password that we never receive. If you sign in with Google, a copy of that ciphertext can sync so your other devices can download it. We cannot read your passwords, names, or other vault contents.
+## Accounts and sync
 
-There are no ads, no analytics, and no telemetry. The encryption has not been independently audited.
+Google or Apple sign-in identifies the owner of an encrypted vault through Supabase. We process the provider identity, email when supplied, user ID, authentication tokens and encrypted vault revision metadata. Apple may provide a private relay email. Account login does not replace the separate master password. Supabase holds the authentication account and ciphertext; the app does not send readable vault contents to that service.
 
-## Information we handle
+## Device protection
 
-### Google account
+Android uses Keystore and iOS uses device-only Keychain protection. Biometric templates remain with the operating system. iOS AutoFill shares only a short-lived encrypted snapshot between VaultLink and its credential provider extension, protected by a separate biometric key. Passwords are released to the selected login field only after authorization and selection. It does not send those passwords to advertising or subscription providers. Sensitive iOS clipboard copies expire after 30 seconds and are restricted to the local device; another app may already have read a copied value.
 
-If you sign in with Google, authentication is handled by Supabase. We receive the email address and user id that Google and Supabase provide, and we use them only to know which encrypted vault belongs to you.
+## Premium subscriptions
 
-The master password is entered only on the device. It is not sent to us, to Google, or to Supabase.
+Apple handles payment. RevenueCat checks purchase receipts, product and transaction information, entitlement status, an automatically generated app user identifier, and associated technical metadata to provide purchase and restore functionality. We do not send your vault or Supabase account identity to RevenueCat. We do not receive your payment card details. Cancelling a subscription is managed in the App Store and is separate from deleting a VaultLink cloud account. Vault access and autofill remain free.
 
-### Vault contents
+## Advertising
 
-Sign-in details, passwords, personal details, profiles, relationships, trash, and previous passwords are encrypted on the device before they are saved (Argon2id and XChaCha20-Poly1305). The cloud row stores only that ciphertext, a revision number, and the time it was updated. A copy of the database does not reveal the vault contents.
-
-An extra device-bound Android Keystore layer protects the local file. That layer is not uploaded.
-
-### Biometrics
-
-Optional fingerprint or face unlock wraps the vault key in the Android Keystore on the device. Biometric templates stay with the operating system. We do not receive them. After a reboot, or after biometric enrollment changes, the app asks for the master password again.
-
-### Autofill
-
-If you set VaultLink as Android's autofill service, the app can fill sign-in fields in other apps and browsers after you unlock or confirm. Filling does not upload those credentials.
-
-Filling does not read your contacts, photos, location, or user dictionary.
-
-## Permissions
-
-| Permission | Purpose |
-|------------|---------|
-| Internet | Google sign-in and encrypted sync |
-| Biometric | Optional unlock on this device |
-
-## Sharing
-
-We do not sell personal data.
-
-Google processes sign-in under [Google's Privacy Policy](https://policies.google.com/privacy). Supabase hosts the authentication account and the encrypted vault row. We do not share vault contents with anyone else, because we cannot read them.
+The free iOS edition can display one Google AdMob banner on Settings. Premium removes it. No advertisements appear in vault lists, item details or the autofill extension. The app requests non-personalized ads after the applicable consent check. Google may process IP-derived approximate location, device/app identifiers and technical data, ad interactions and performance data for ad delivery, measurement and fraud prevention. Non-personalized advertising still involves data processing. The app does not supply vault contents, names, emails, search terms or saved website addresses to AdMob, and it does not request Apple's advertising tracking permission. Where required, Settings provides advertising privacy choices so users can revisit their decision. There is no separate app analytics service; advertising and subscription SDK processing is described here.
 
 ## Retention and deletion
 
-Local vault files stay on the device until you clear the app's storage or uninstall it. Signing out removes the session on that device and leaves the local ciphertext in place.
+When signed in, Account → Delete cloud account asks for confirmation. Apple-linked accounts additionally reauthorize with Apple so that the grant can be revoked. Deletion removes the Supabase account and encrypted server vault. Local encrypted copies on enrolled devices remain until removed from those devices; signing out does not erase them. If the in-app route is unavailable, contact lee.mh.kenny@gmail.com from the account email to request deletion. Deleting the cloud account does not cancel an App Store subscription.
 
-To delete the cloud account and the encrypted vault row, email [lee.mh.kenny@gmail.com](mailto:lee.mh.kenny@gmail.com?subject=Delete%20my%20VaultLink%20account) from the Google account you use in the app and ask us to delete your VaultLink account. We delete the Supabase user and the ciphertext row. A device that still has a local copy keeps that copy until you clear app data or uninstall.
-
-Inside the app, open the account screen and choose **Request cloud account deletion**. That opens this request. It does not erase a local copy by itself.
-
-## Children
-
-VaultLink is not directed at children under 13. We do not knowingly collect personal information from children.
-
-## Changes
-
-We may update this policy. The "Last updated" date at the top will change when we do.
-
-## Contact
-
-**Email:** [lee.mh.kenny@gmail.com](mailto:lee.mh.kenny@gmail.com)
+We do not sell vault contents. Providers process service data under their policies: [Apple](https://www.apple.com/legal/privacy/), [Google](https://policies.google.com/privacy), [Supabase](https://supabase.com/privacy), [RevenueCat](https://www.revenuecat.com/privacy/). Contact: lee.mh.kenny@gmail.com. VaultLink is not directed at children under 13.
 
 ---
 
 ## 隱私權政策 — VaultLink（繁體中文）
 
-**最後更新：** 2026 年 10 月 28 日
+**最後更新：2026 年 11 月 12 日**
 
-Kenny Lee（「我們」）營運 **VaultLink**。本頁說明使用這個應用程式時，資料如何被處理。
+Kenny Lee 營運 VaultLink。本政策涵蓋 Android 應用程式及準備發佈的 iOS 版本。
 
-### 摘要
+VaultLink 先在裝置上加密保險庫，再儲存或同步。主密碼與復原金鑰不會傳送給我們、Supabase、RevenueCat 或 AdMob。加密尚未經獨立稽核。
 
-VaultLink 是帳號與登入資料保險庫。保險庫在你的裝置上以主密碼加密，我們收不到這組主密碼。若你使用 Google 登入，加密後的副本可以同步，讓其他裝置下載。我們讀不到你的密碼、姓名或其他保險庫內容。
+### 帳號及同步
 
-沒有廣告、沒有分析、沒有遙測。加密尚未經過獨立稽核。
+ Google 或 Apple 登入透過 Supabase 識別加密保險庫的擁有者。我們處理登入身分、供應商提供的電郵、使用者識別碼、驗證權杖及密文版本資訊；Apple 可能提供隱藏電郵。登入帳號不取代主密碼。Supabase 保存帳號及保險庫密文，不接收可讀取的保險庫內容。
 
-### 我們處理的資料
+### 裝置保護
 
-- **Google 帳號：** 登入由 Supabase 處理。我們收到 Google 與 Supabase 提供的電子郵件與使用者識別碼，只用來對應哪一份加密保險庫屬於你。主密碼只在裝置上輸入，不會送到我們、Google 或 Supabase。
-- **保險庫內容：** 登入資料、密碼、個人資料、設定檔、關係、垃圾桶與先前的密碼，都先在裝置上加密再儲存。雲端只保存密文、版本號與更新時間。資料庫副本無法還原保險庫內容。本機檔案另有一層裝置綁定的 Android Keystore，這一層不會上傳。
-- **生物辨識：** 指紋或臉部解鎖把金鑰包在裝置上的 Android Keystore。生物辨識範本留在作業系統，我們收不到。重新開機或變更生物辨識登錄後，應用程式會再要求主密碼。
-- **自動填入：** 若你把 VaultLink 設為 Android 自動填入服務，解鎖或確認後可以填入其他應用程式與瀏覽器的登入欄位。填入不會上傳那些憑證。填入不會讀取聯絡人、相片、位置或使用者字典。
+ Android 使用 Keystore，iOS 使用綁定裝置的 Keychain。生物辨識範本留在作業系統。iOS 自動填入透過獨立生物辨識金鑰保護短期加密副本，在授權及選擇後才將密碼填入登入欄位。密碼不會傳給廣告或訂閱服務。iOS 敏感剪貼簿限制在本機並於 30 秒後到期，但其他程式可能已讀取複製內容。
 
-### 權限
+### Premium 訂閱
 
-| 權限 | 用途 |
-|------|------|
-| 網際網路 | Google 登入與加密同步 |
-| 生物辨識 | 在這部裝置上選擇性解鎖 |
+ Apple 處理付款；RevenueCat 處理購買收據、商品與交易資訊、權益狀態、自動產生的應用程式使用者識別碼及相關技術資料，以提供購買與恢復購買。我們不會將保險庫或 Supabase 帳號身分傳給 RevenueCat，也收不到付款卡資料。訂閱需在 App Store 管理，與刪除 VaultLink 雲端帳號分開。保險庫與自動填入維持免費。
 
-### 分享
+### 廣告
 
-我們不出售個人資料。Google 依其隱私權政策處理登入。Supabase 代管驗證帳號與加密保險庫資料列。我們無法閱讀保險庫內容，也不會把內容分享給其他人。
+ 免費 iOS 版可在設定頁顯示一個 AdMob 橫幅；Premium 移除廣告。保險庫清單、項目詳情及自動填入擴充功能不顯示廣告。應用程式經適用的同意檢查後要求非個人化廣告。Google 仍可能處理 IP 推算的概略位置、裝置／應用程式識別碼、技術資料、廣告互動及效能資料，用於廣告投放、衡量及防詐騙。非個人化不等於不處理資料。我們不向 AdMob 提供保險庫、姓名、電郵、搜尋內容或儲存的網址，亦不要求 Apple 廣告追蹤授權。需要時可在設定頁重新調整廣告隱私選項。沒有獨立的應用程式分析服務；廣告及訂閱 SDK 的資料處理如上所述。
 
 ### 保留與刪除
 
-本機保險庫會留在裝置上，直到你清除應用程式儲存空間或解除安裝。登出只會移除這部裝置上的工作階段，本機密文仍會留下。
-
-若要刪除雲端帳號與加密保險庫資料列，請用你在應用程式裡使用的 Google 帳號寄信到 [lee.mh.kenny@gmail.com](mailto:lee.mh.kenny@gmail.com?subject=Delete%20my%20VaultLink%20account)，要求刪除 VaultLink 帳號。我們會刪除 Supabase 使用者與密文資料列。裝置上仍留著的本機副本，要等你清除應用程式資料或解除安裝才會消失。
-
-在應用程式裡開啟帳號畫面，點 **要求刪除雲端帳號**，就會開啟這項請求。這個動作本身不會清除本機副本。
-
-### 兒童
-
-VaultLink 不以 13 歲以下兒童為對象。
-
-### 聯絡
-
-**電子郵件：** [lee.mh.kenny@gmail.com](mailto:lee.mh.kenny@gmail.com)
+ 登入後可在帳號頁選擇刪除雲端帳號並確認。連結 Apple 的帳號須再次授權，以撤銷 Apple 登入許可。刪除會移除 Supabase 帳號及雲端密文；各裝置既有的本機加密副本仍會保留，需在各裝置移除。登出不會清除本機副本。若應用程式刪除功能無法使用，可由帳號電郵聯絡 lee.mh.kenny@gmail.com。刪除雲端帳號不會取消 App Store 訂閱。
